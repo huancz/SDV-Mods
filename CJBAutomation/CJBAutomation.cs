@@ -52,7 +52,9 @@ namespace CJBAutomation {
         }
 
         private void ProcessObject(GameLocation gLoc, Vector2 objLoc, StardewValley.Object obj) {
-            if (obj.name.Equals("Furnace")) {
+            #region "Furnace"
+            if (obj.name.Equals("Furnace"))
+            {
                 List<Chest> chests = Automation.GetChestsFromSurroundingLocation(gLoc, objLoc);
                 if (obj.heldObject != null && obj.readyForHarvest) {
                     foreach (Chest chest in chests) {
@@ -100,7 +102,10 @@ namespace CJBAutomation {
                         obj.showNextIndex = true;
                     }
                 }
-            } else if (obj.name.Equals("Crystalarium")) {
+            }
+            #endregion
+            #region "Crystalarium"
+            else if (obj.name.Equals("Crystalarium")) {
                 List<Chest> chests = Automation.GetChestsFromSurroundingLocation(gLoc, objLoc);
                 if (obj.heldObject != null && obj.readyForHarvest) {
                     foreach (Chest chest in chests) {
@@ -113,7 +118,10 @@ namespace CJBAutomation {
                         }
                     }
                 }
-            } else if (obj.name.Equals("Mayonnaise Machine")) {
+            }
+            #endregion
+            #region "Mayo Machine"
+            else if (obj.name.Equals("Mayonnaise Machine")) {
                 List<Chest> chests = Automation.GetChestsFromSurroundingLocation(gLoc, objLoc);
                 if (obj.heldObject != null && obj.readyForHarvest) {
                     foreach (Chest chest in chests) {
@@ -151,7 +159,10 @@ namespace CJBAutomation {
                         obj.minutesUntilReady = 180;
                     }
                 }
-            } else if (obj.name.Equals("Keg")) {
+            }
+            #endregion
+            #region "Keg"
+            else if (obj.name.Equals("Keg")) {
                 List<Chest> chests = Automation.GetChestsFromSurroundingLocation(gLoc, objLoc);
                 if (obj.heldObject != null && obj.readyForHarvest) {
                     foreach (Chest chest in chests) {
@@ -228,7 +239,11 @@ namespace CJBAutomation {
                         }
                     }
                 }
-            } else if (obj.name.Equals("Charcoal Kiln")) {
+            }
+            #endregion
+            #region "Charcoal Kiln"
+            else if (obj.name.Equals("Charcoal Kiln"))
+            {
                 List<Chest> chests = Automation.GetChestsFromSurroundingLocation(gLoc, objLoc);
                 if (obj.heldObject != null && obj.readyForHarvest) {
                     foreach (Chest chest in chests) {
@@ -248,7 +263,11 @@ namespace CJBAutomation {
                         obj.showNextIndex = true;
                     }
                 }
-            } else if (obj.name.Equals("Cheese Press")) {
+            }
+            #endregion
+            #region "Cheese Press"
+            else if (obj.name.Equals("Cheese Press"))
+            {
                 List<Chest> chests = Automation.GetChestsFromSurroundingLocation(gLoc, objLoc);
                 if (obj.heldObject != null && obj.readyForHarvest) {
                     foreach (Chest chest in chests) {
@@ -280,7 +299,11 @@ namespace CJBAutomation {
                         obj.minutesUntilReady = 200;
                     }
                 }
-            } else if (obj.name.Equals("Preserves Jar")) {
+            }
+            #endregion
+            #region "Preserves Jar"
+            else if (obj.name.Equals("Preserves Jar"))
+            {
                 List<Chest> chests = Automation.GetChestsFromSurroundingLocation(gLoc, objLoc);
                 if (obj.heldObject != null && obj.readyForHarvest) {
                     foreach (Chest chest in chests) {
@@ -315,7 +338,11 @@ namespace CJBAutomation {
                         }
                     }
                 }
-            } else if (obj.name.Equals("Loom")) {
+            }
+            #endregion
+            #region "Loom"
+            else if (obj.name.Equals("Loom"))
+            {
                 List<Chest> chests = Automation.GetChestsFromSurroundingLocation(gLoc, objLoc);
                 if (obj.heldObject != null && obj.readyForHarvest) {
                     foreach (Chest chest in chests) {
@@ -336,7 +363,11 @@ namespace CJBAutomation {
                         obj.showNextIndex = true;
                     }
                 }
-            } else if (obj.name.Equals("Bee House") && !Game1.currentSeason.Equals("winter")) {
+            }
+            #endregion
+            #region "Bee House"
+            else if (obj.name.Equals("Bee House") && !Game1.currentSeason.Equals("winter"))
+            {
                 List<Chest> chests = Automation.GetChestsFromSurroundingLocation(gLoc, objLoc);
                 if (obj.heldObject != null && obj.readyForHarvest) {
                     foreach (Chest chest in chests) {
@@ -367,7 +398,11 @@ namespace CJBAutomation {
                         }
                     }
                 }
-            } else if (obj.name.Equals("Worm Bin")) {
+            }
+            #endregion
+            #region "Worm Bin"
+            else if (obj.name.Equals("Worm Bin"))
+            {
                 List<Chest> chests = Automation.GetChestsFromSurroundingLocation(gLoc, objLoc);
                 if (obj.heldObject != null && obj.readyForHarvest) {
                     foreach (Chest chest in chests) {
@@ -382,7 +417,11 @@ namespace CJBAutomation {
                         }
                     }
                 }
-            } else if (obj.name.Equals("Seed Maker")) {
+            }
+            #endregion
+            #region "Seed Maker"
+            else if (obj.name.Equals("Seed Maker"))
+            {
                 List<Chest> chests = Automation.GetChestsFromSurroundingLocation(gLoc, objLoc);
                 if (obj.heldObject != null && obj.readyForHarvest) {
                     foreach (Chest chest in chests) {
@@ -408,7 +447,11 @@ namespace CJBAutomation {
                         obj.minutesUntilReady = 20;
                     }
                 }
-            } else if (obj.name.Equals("Recycling Machine")) {
+            }
+            #endregion
+            #region "Recycling Machine"
+            else if (obj.name.Equals("Recycling Machine"))
+            {
                 List<Chest> chests = Automation.GetChestsFromSurroundingLocation(gLoc, objLoc);
                 if (obj.heldObject != null && obj.readyForHarvest) {
                     foreach (Chest chest in chests) {
@@ -441,7 +484,11 @@ namespace CJBAutomation {
                         Game1.stats.PiecesOfTrashRecycled += 1u;
                     }
                 }
-            } else if (obj.name.Equals("Oil Maker")) {
+            }
+            #endregion
+            #region "Oil Maker"
+            else if (obj.name.Equals("Oil Maker"))
+            {
                 List<Chest> chests = Automation.GetChestsFromSurroundingLocation(gLoc, objLoc);
                 if (obj.heldObject != null && obj.readyForHarvest) {
                     foreach (Chest chest in chests) {
@@ -469,7 +516,11 @@ namespace CJBAutomation {
                         obj.minutesUntilReady = 3200;
                     }
                 }
-            } else if (obj.name.Equals("Tapper")) {
+            }
+            #endregion
+            #region "Tapper"
+            else if (obj.name.Equals("Tapper"))
+            {
                 List<Chest> chests = Automation.GetChestsFromSurroundingLocation(gLoc, objLoc);
                 if (obj.heldObject != null && obj.readyForHarvest) {
                     foreach (Chest chest in chests) {
@@ -509,7 +560,11 @@ namespace CJBAutomation {
                         }
                     }
                 }
-            } else if (obj.name.Equals("Lightning Rod")) {
+            }
+            #endregion
+            #region "Lightning Rod"
+            else if (obj.name.Equals("Lightning Rod"))
+            {
                 List<Chest> chests = Automation.GetChestsFromSurroundingLocation(gLoc, objLoc);
                 if (obj.heldObject != null && obj.readyForHarvest) {
                     foreach (Chest chest in chests) {
@@ -523,6 +578,8 @@ namespace CJBAutomation {
                     }
                 }
             }
+            #endregion
+            #region "Cask"
             else if (obj.name.Equals("Cask"))
             {
                 if (gLoc.Name != "Cellar")
@@ -592,6 +649,8 @@ namespace CJBAutomation {
                     }
                 }
             }
+            #endregion
+            #region "Slime Egg-Press"
             else if (obj.name == "Slime Egg-Press")
             {
                 List<Chest> chests = Automation.GetChestsFromSurroundingLocation(gLoc, objLoc);
@@ -622,6 +681,8 @@ namespace CJBAutomation {
                     }
                 }
             }
+            #endregion
+            #region "Mushroom Box"
             else if (obj.Name.Contains("Mushroom Box"))
             {
                 if (obj.heldObject != null && obj.readyForHarvest)
@@ -648,6 +709,7 @@ namespace CJBAutomation {
                     }
                 }
             }
+            #endregion
             // end
         }
     }
