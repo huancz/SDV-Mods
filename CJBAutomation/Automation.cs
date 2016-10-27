@@ -8,22 +8,29 @@ using System.Collections.Generic;
 using System.Linq;
 using SDV = StardewValley;
 
-namespace CJBAutomation {
-    public class Automation {
+namespace CJBAutomation
+{
+    public class Automation
+    {
 
         private static Dictionary<int, int> cropData;
 
-        public static List<Chest> GetChestsFromSurroundingLocation(GameLocation loc, Vector2 vec) {
+        public static List<Chest> GetChestsFromSurroundingLocation(GameLocation loc, Vector2 vec)
+        {
             List<Chest> chests = new List<Chest>();
 
             if (loc == null || vec == null)
                 return chests;
 
-            for (int x = -1; x <= 1; x++) {
-                for (int y = -1; y <= 1; y++) {
-                    if ((CJBAutomation.config.diagonal || (x == 0 || y == 0)) && !(x == 0 && y == 0)) {
+            for (int x = -1; x <= 1; x++)
+            {
+                for (int y = -1; y <= 1; y++)
+                {
+                    if ((CJBAutomation.config.diagonal || (x == 0 || y == 0)) && !(x == 0 && y == 0))
+                    {
                         Vector2 index = new Vector2(vec.X - x, vec.Y - y);
-                        if (loc.objects.ContainsKey(index)) {
+                        if (loc.objects.ContainsKey(index))
+                        {
                             StardewValley.Object o = loc.objects[index];
                             if (o is Chest)
                                 chests.Add((Chest)o);
@@ -45,9 +52,12 @@ namespace CJBAutomation {
             return FindItemTypes<Chest>(loc);
         }
 
-        public static bool DoesChestsHaveItem(List<Chest> chests, int index, int stack) {
-            foreach (Chest chest in chests) {
-                foreach (Item item in chest.items) {
+        public static bool DoesChestsHaveItem(List<Chest> chests, int index, int stack)
+        {
+            foreach (Chest chest in chests)
+            {
+                foreach (Item item in chest.items)
+                {
                     if (item.parentSheetIndex == index && item.Stack >= stack)
                         return true;
                 }
@@ -63,10 +73,14 @@ namespace CJBAutomation {
             chest.clearNulls();
         }
 
-        public static bool RemoveItemFromChests(List<Chest> chests, int index, int stack = 1) {
-            foreach (Chest chest in chests) {
-                foreach (Item item in chest.items) {
-                    if (item.parentSheetIndex == index && item.Stack >= stack) {
+        public static bool RemoveItemFromChests(List<Chest> chests, int index, int stack = 1)
+        {
+            foreach (Chest chest in chests)
+            {
+                foreach (Item item in chest.items)
+                {
+                    if (item.parentSheetIndex == index && item.Stack >= stack)
+                    {
                         item.Stack -= stack;
                         if (item.Stack <= 0)
                             chest.items.Remove(item);
@@ -78,9 +92,12 @@ namespace CJBAutomation {
             return false;
         }
 
-        public static Item GetItemFromChestsByCategory(List<Chest> chests, int category, int excludeid) {
-            foreach (Chest chest in chests) {
-                foreach (Item item in chest.items) {
+        public static Item GetItemFromChestsByCategory(List<Chest> chests, int category, int excludeid)
+        {
+            foreach (Chest chest in chests)
+            {
+                foreach (Item item in chest.items)
+                {
                     if (item.category == category && item.parentSheetIndex != excludeid)
                         return item.getOne();
                 }
@@ -88,10 +105,14 @@ namespace CJBAutomation {
             return null;
         }
 
-        public static void RemoveItemFromChestsCategory(List<Chest> chests, int category, int excludeid) {
-            foreach (Chest chest in chests) {
-                foreach (Item item in chest.items) {
-                    if (item.category == category && item.parentSheetIndex != excludeid) {
+        public static void RemoveItemFromChestsCategory(List<Chest> chests, int category, int excludeid)
+        {
+            foreach (Chest chest in chests)
+            {
+                foreach (Item item in chest.items)
+                {
+                    if (item.category == category && item.parentSheetIndex != excludeid)
+                    {
                         item.Stack -= 1;
                         if (item.Stack <= 0)
                             chest.items.Remove(item);
@@ -103,10 +124,14 @@ namespace CJBAutomation {
             return;
         }
 
-        public static Item GetItemFromChestsByName(List<Chest> chests, string name, int excludeid) {
-            foreach (Chest chest in chests) {
-                foreach (Item item in chest.items) {
-                    if (item.Name == null) continue;
+        public static Item GetItemFromChestsByName(List<Chest> chests, string name, int excludeid)
+        {
+            foreach (Chest chest in chests)
+            {
+                foreach (Item item in chest.items)
+                {
+                    if (item.Name == null)
+                        continue;
                     if (item.Name == name && item.parentSheetIndex != excludeid)
                         return item.getOne();
                 }
@@ -132,15 +157,20 @@ namespace CJBAutomation {
             return false;
         }
 
-        public static bool RemoveItemFromChestsByName(List<Chest> chests, string name, int excludeid, int stack = 1) {
+        public static bool RemoveItemFromChestsByName(List<Chest> chests, string name, int excludeid, int stack = 1)
+        {
             if (stack > 1 && !ChestsHaveEnoughItemsByName(chests, name, excludeid, stack))
                 return false;
 
-            foreach (Chest chest in chests) {
+            foreach (Chest chest in chests)
+            {
                 var toRemove = new List<Item>();
-                foreach (Item item in chest.items) {
-                    if (item.Name == null) continue;
-                    if (item.Name == name && item.parentSheetIndex != excludeid) {
+                foreach (Item item in chest.items)
+                {
+                    if (item.Name == null)
+                        continue;
+                    if (item.Name == name && item.parentSheetIndex != excludeid)
+                    {
                         int remove = Math.Min(stack, item.Stack);
                         item.Stack -= remove;
                         stack -= remove;
@@ -162,12 +192,17 @@ namespace CJBAutomation {
             return false;
         }
 
-        public static int RemoveItemFromChestsIfCrop(List<Chest> chests) {
-            foreach (Chest chest in chests) {
-                foreach (Item item in chest.items) {
-                    if (item.Name == null) continue;
+        public static int RemoveItemFromChestsIfCrop(List<Chest> chests)
+        {
+            foreach (Chest chest in chests)
+            {
+                foreach (Item item in chest.items)
+                {
+                    if (item.Name == null)
+                        continue;
                     int seedId = getSeedIdFromCropId(item.parentSheetIndex);
-                    if (seedId != -1) {
+                    if (seedId != -1)
+                    {
                         item.Stack -= 1;
                         if (item.Stack <= 0)
                             chest.items.Remove(item);
@@ -179,25 +214,31 @@ namespace CJBAutomation {
             return -1;
         }
 
-        public static int getSeedIdFromCropId(int cropId) {
+        public static int getSeedIdFromCropId(int cropId)
+        {
 
-            if (cropData == null) {
+            if (cropData == null)
+            {
                 cropData = new Dictionary<int, int>();
                 Dictionary<int, string> dictionary = Game1.content.Load<Dictionary<int, string>>("Data\\Crops");
-                foreach (KeyValuePair<int, string> current in dictionary) {
+                foreach (KeyValuePair<int, string> current in dictionary)
+                {
                     cropData.Add(Convert.ToInt32(current.Value.Split(new char[] { '/' })[3]), current.Key);
                 }
             }
 
-            if (cropData.ContainsKey(cropId)) {
+            if (cropData.ContainsKey(cropId))
+            {
                 return cropData[cropId];
             }
 
             return -1;
         }
 
-        public static int getMinutesForCrystalarium(int whichGem) {
-            switch (whichGem) {
+        public static int getMinutesForCrystalarium(int whichGem)
+        {
+            switch (whichGem)
+            {
                 case 60:
                     return 3000;
                 case 62:
