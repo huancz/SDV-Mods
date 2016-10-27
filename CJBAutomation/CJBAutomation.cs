@@ -704,6 +704,8 @@ namespace CJBAutomation {
                         {
                             obj.heldObject = null;
                             obj.readyForHarvest = false;
+                            obj.minutesUntilReady = -1;
+                            obj.showNextIndex = false;
                             break;
                         }
                     }
